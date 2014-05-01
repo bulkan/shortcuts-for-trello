@@ -1,0 +1,30 @@
+{
+  "name": "Trello Shortcuts Plus",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Adds more extensions to Trello",
+  "homepage_url": "https://github.com/bulkan/trello-shortcuts",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": false
+  },
+  "permissions": [
+    "clipboardWrite"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://trello.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
