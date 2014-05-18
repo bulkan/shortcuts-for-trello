@@ -46,22 +46,11 @@ chrome.extension.sendMessage({}, function(response) {
           }
 
           console.log('ctrl+m');
-          card.find('span.list-card-operation').click();
+          card.find('span.list-card-operation').trigger('click');
+          var elm = document.querySelector('a.js-move-card');
 
-          setTimeout(function(){
-            var moveCardInterval = setInterval(function(){
-              var elm = $('.js-move-card').click();
-
-              if ($('span.header-title:contains("Move Card")').length > 0){
-                console.log('here')
-                clearInterval(moveCardInterval);
-              }
-
-            }, 100)
-
-
-          }, 300)
-
+          // not a jquery event ? or some sort of weird event bubble bug
+          elm.click();
         }
       };
 
