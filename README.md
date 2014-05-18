@@ -7,4 +7,7 @@ Chrome extenstion that adds more keyboard shortcuts Trello.
 
 # Shortcuts
 
-While hovering over a card hit `y` to copy the cards link to the clipboard.
+While hovering over a card hit one of the following keys;
+
+    * `y` to copy the cards link (permalink) to the clipboard.
+    * `ctrl+m` to open the `Move Card` popup dialog.
