@@ -11,3 +11,10 @@ While hovering over a card hit one of the following keys;
 
     * `y` to copy the cards link (permalink) to the clipboard.
     * `ctrl+m` to open the `Move Card` popup dialog.
+
+
+# Installation
+
+Install via Google Chrome Webstore. 
+
+https://chrome.google.com/webstore/detail/trello-shortcuts-plus/pfkeglfbhfmlnapfjfjfkiipclpmanim?hl=en-US
