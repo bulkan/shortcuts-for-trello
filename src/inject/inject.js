@@ -52,6 +52,10 @@ chrome.extension.sendMessage({}, function(response) {
           // not a jquery event ? or some sort of weird event bubble bug
           elm.click();
         }
+        // ctrl+n for notifications popup
+        else if (e.which === 110){
+          document.querySelector('.header-notifications.js-open-header-notifications-menu').click();
+        }
       };
 
     }
