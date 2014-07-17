@@ -19,6 +19,8 @@ chrome.extension.sendMessage({}, function(response) {
     });
   };
 
+  var elm;
+
   var readyStateCheckInterval = setInterval(function() {
     if (document.readyState === "complete") {
       clearInterval(readyStateCheckInterval);
@@ -47,15 +49,29 @@ chrome.extension.sendMessage({}, function(response) {
 
           console.log('ctrl+m');
           card.find('span.list-card-operation').trigger('click');
-          var elm = document.querySelector('a.js-move-card');
+          elm = document.querySelector('a.js-move-card');
 
           // not a jquery event ? or some sort of weird event bubble bug
           elm.click();
         }
-        // ctrl+n for notifications popup
-        //else if (e.which === 110){
-          //document.querySelector('.header-notifications.js-open-header-notifications-menu').click();
-        //}
+
+        // ctrl+u
+        else if (e.ctrlKey && e.which === 21) {
+          if(card.length !== 1){
+            return;
+          }
+
+          card.find('span.list-card-operation').trigger('click');
+          elm = document.querySelector('a.js-move-card');
+          // not a jquery event ? or some sort of weird event bubble bug
+          elm.click();
+          $('.js-select-position').children().first().attr('selected', 'selected');
+          $('input[value="Move"]').click();
+        }
+         //ctrl+n for notifications popup
+        else if (e.ctrlKey && e.which === 14){
+          document.querySelector('.header-notifications.js-open-header-notifications-menu').click();
+        }
       };
 
     }
