@@ -47,7 +47,6 @@ chrome.extension.sendMessage({}, function(response) {
             return;
           }
 
-          console.log('ctrl+m');
           card.find('span.list-card-operation').trigger('click');
           elm = document.querySelector('a.js-move-card');
 
