@@ -68,9 +68,23 @@ chrome.extension.sendMessage({}, function(response) {
           $('.js-select-position').children().first().attr('selected', 'selected');
           $('input[value="Move"]').click();
         }
-         //ctrl+n for notifications popup
+        //ctrl+n for notifications popup
         else if (e.ctrlKey && e.which === 14){
           document.querySelector('.header-notifications.js-open-header-notifications-menu').click();
+        }
+        //ctrl+up ScrollTop
+        else if (e.ctrlKey && e.which === 63232){
+          var cardList = $(':hover').last().parents('.list').children('.list-cards');
+          if(cardList){
+            cardList.scrollTop(0);
+          }
+        }
+        //ctrl+down ScrollBottom
+        else if (e.ctrlKey && e.which === 63233){
+          var cardList = $(':hover').last().parents('.list').children('.list-cards');
+          if(cardList){
+            cardList.scrollTop(cardList.height() + 500); //Just to make sure we get the entire height
+          }
         }
       };
 
