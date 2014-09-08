@@ -1,17 +1,22 @@
-chrome.extension.onMessage.addListener(
-  function(message, sender, sendResponse) {
+chrome.extension.onMessage.addListener(function(message, sender, sendResponse) {
 
-    // if the message has text then copy it to the clipboard
-    if (message.hasOwnProperty('text')){
-      var text = message.text;
+  // if the message has text then copy it to the clipboard
+  if (message.hasOwnProperty('text')){
+    var text = message.text;
 
-      var input = document.getElementById('url');
+    var input = document.getElementById('url');
 
-      input.value = text;
-      input.select();
+    input.value = text;
+    input.select();
 
-      document.execCommand('copy', false, null);
-    }
+    document.execCommand('copy', false, null);
+  }
 
-    sendResponse();
-  });
+  sendResponse();
+});
+
+
+
+chrome.commands.onCommand.addListener(function(command) {
+  console.log('Command:', command);
+});

@@ -1,6 +1,6 @@
 {
   "name": "Shortcuts for Trello",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "manifest_version": 2,
   "description": "Adds more extensions to Trello",
   "homepage_url": "https://github.com/bulkan/shortcuts-for-trello",
@@ -27,5 +27,14 @@
         "vendor/jquery-2.1.1.min.js"
       ]
     }
-  ]
+  ],
+  "commands": {
+    "movecard": {
+      "suggested_key": {
+        "default": "Ctrl+M",
+        "mac": "MacCtrl+M"
+      },
+      "description": "Show Move Dialog menu"
+    }
+  }
 }
