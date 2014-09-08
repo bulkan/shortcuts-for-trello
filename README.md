@@ -7,6 +7,7 @@ Chrome extension that adds more keyboard shortcuts to Trello.
 Configure shortcuts from the `Keyboard Shortcuts` menu accessible via the link at the bottom of
 [chrome://extensions](chrome://extensions)
 
+![ext](https://raw.githubusercontent.com/bulkan/shortcuts-for-trello/master/screenshots/Screen Shot 2014-09-08 at 8.18.12 pm.png)
 
 
 # Supported Shortcuts
