@@ -2,30 +2,25 @@
 
 # Shortcuts for Trello
 
-Chrome extenstion that adds more keyboard shortcuts Trello.
+Chrome extension that adds more keyboard shortcuts to Trello.
 
 Configure shortcuts from the `Keyboard Shortcuts` menu accessible via the link at the bottom of
 [chrome://extensions](chrome://extensions)
 
 
 
-# Shortcuts
+# Supported Shortcuts
 
-While hovering over a card;
-
-    * `y` - copy (yank) the cards permalink to the clipboard.
-    * `ctrl + m` - open the `Move Card` popup dialog.
-    * `ctrl + u` - move the card to first position in the list.
-
+* Copy the link (permalink) to the clipboard
+* Open the `Move Card` popup dialog
+* Move to the top the list
 
 While **not** hovering over a card;
 
-    *  `ctrl+n` - open the notifications dialog
+* Scroll to the top
+* Scroll to the bottom
+* Open the notifications dialog
 
-While hovering anywhere over a list;
-
-    * `ctrl+up` - scroll the hovered list to the top
-    * `ctrl+down` - scroll the hovered list to the bottom
 
 # Installation
 
