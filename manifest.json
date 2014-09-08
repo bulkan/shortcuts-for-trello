@@ -1,6 +1,6 @@
 {
   "name": "Shortcuts for Trello",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "manifest_version": 2,
   "description": "Adds more extensions to Trello",
   "homepage_url": "https://github.com/bulkan/shortcuts-for-trello",
@@ -15,6 +15,7 @@
     "persistent": false
   },
   "permissions": [
+    "tabs",
     "clipboardWrite"
   ],
   "content_scripts": [
@@ -30,11 +31,22 @@
   ],
   "commands": {
     "movecard": {
-      "suggested_key": {
-        "default": "Ctrl+M",
-        "mac": "MacCtrl+M"
-      },
-      "description": "Show Move Dialog menu"
+      "description": "Show the Move dialog menu"
+    },
+    "yank": {
+      "description": "Copy short URL"
+    },
+    "movecardup": {
+      "description": "Move card to top"
+    },
+    "notifications": {
+      "description": "Show notifications"
+    },
+    "scrolltop": {
+      "description": "Scroll to top of list"
+    },
+    "scrollbottom": {
+      "description": "Scroll to bottom of list"
     }
   }
 }
