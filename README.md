@@ -1,4 +1,6 @@
-![ext](https://raw.githubusercontent.com/bulkan/shortcuts-for-trello/master/icons/128.png)
+![ext](https://raw.githubusercontent.com/bulkan/shortcuts-for-trello/develop/icons/128.png)
+
+
 
 # Shortcuts for Trello
 
@@ -7,7 +9,7 @@ Chrome extension that adds more keyboard shortcuts to Trello.
 Configure shortcuts from the `Keyboard Shortcuts` menu accessible via the link at the bottom of
 [chrome://extensions](chrome://extensions)
 
-![ext](https://raw.githubusercontent.com/bulkan/shortcuts-for-trello/master/screenshots/Screen Shot 2014-09-08 at 8.18.12 pm.png)
+![ext](https://raw.githubusercontent.com/bulkan/shortcuts-for-trello/develop/screenshots/Screen%20Shot%202014-09-08%20at%208.18.12%20pm.png)
 
 
 # Supported Shortcuts
