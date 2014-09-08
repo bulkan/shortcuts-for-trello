@@ -4,6 +4,10 @@
 
 Chrome extenstion that adds more keyboard shortcuts Trello.
 
+Configure shortcuts from the `Keyboard Shortcuts` menu accessible via the link at the bottom of
+[chrome://extensions](chrome://extensions)
+
+
 
 # Shortcuts
 
