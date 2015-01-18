@@ -1,6 +1,6 @@
 {
   "name": "Shortcuts for Trello",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 2,
   "description": "Adds more extensions to Trello",
   "homepage_url": "https://github.com/bulkan/shortcuts-for-trello",
@@ -47,6 +47,10 @@
     },
     "scrollbottom": {
       "description": "Scroll to bottom of list"
+    },
+    "collapselist": {
+      "description": "Collapse a list"
     }
+    
   }
 }

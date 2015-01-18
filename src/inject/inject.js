@@ -1,4 +1,6 @@
-chrome.extension.sendMessage({}, function(response) {
+/* global chrome */
+
+chrome.extension.sendMessage({}, function() {
 
   var elm, card, readyStateCheckInterval;
 
@@ -9,31 +11,34 @@ chrome.extension.sendMessage({}, function(response) {
     }
   }, 10);
 
-  function routeCommand(request, sender, sendResponse) {
+  function routeCommand(request) {
     card = $('.active-card');
     switch(request.command) {
         case 'movecard':
-          movecard();
+          moveCard();
         break;
         case 'yank':
           yank();
         break;
         case 'movecardup':
-          movecardup();
+          moveCardUp();
         break;
         case 'notifications':
           notifications();
         break;
         case 'scrolltop':
-          scrolltop();
+          scrollTop();
         break;
         case 'scrollbottom':
-          scrollbottom();
+          scrollBottom();
+        break;
+        case 'collapselist':
+            collapseList();
         break;
     }
   }
 
-  function movecard() {
+  function moveCard() {
     if(card.length !== 1) return;
 
     card.find('span.list-card-operation').trigger('click');
@@ -52,7 +57,7 @@ chrome.extension.sendMessage({}, function(response) {
     chrome.extension.sendMessage({ text: url });
   }
 
-  function movecardup() {
+  function moveCardUp() {
     if(card.length !== 1) return;
 
     card.find('span.list-card-operation').trigger('click');
@@ -67,14 +72,14 @@ chrome.extension.sendMessage({}, function(response) {
     document.querySelector('.header-notifications.js-open-header-notifications-menu').click();
   }
 
-  function scrolltop() {
+  function scrollTop() {
     var cardList = $(':hover').last().parents('.list').children('.list-cards');
     if(cardList){
       cardList.scrollTop(0);
     }
   }
 
-  function scrollbottom() {
+  function scrollBottom() {
     var cardList = $(':hover').last().parents('.list').children('.list-cards');
     if(cardList){
       cardList.scrollTop(cardList.height() + 500); //Just to make sure we get the entire height
@@ -97,6 +102,24 @@ chrome.extension.sendMessage({}, function(response) {
         $("#floatingDiv").remove();
       })
     });
+  }
+
+  function collapseList(){
+    var cardList = $(':hover').last().parents('.list');
+    if(!cardList){
+        return;
+    }
+
+    var prevHeight = cardList.attr('prevHeight');
+    if(prevHeight){
+      cardList.animate({ height: prevHeight});
+      cardList.removeAttr('prevHeight');
+    }
+    else {
+      var height = cardList.height();
+      cardList.attr('prevHeight', height);
+      cardList.animate({ height: '67px'});
+    }
   }
 
 });
