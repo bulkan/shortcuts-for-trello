@@ -17,6 +17,9 @@ chrome.extension.sendMessage({}, function() {
         case 'movecard':
           moveCard();
         break;
+        case 'copycard':
+          copyCard();
+        break;
         case 'yank':
           yank();
         break;
@@ -56,6 +59,15 @@ chrome.extension.sendMessage({}, function() {
 
     card.find('span.list-card-operation').trigger('click');
     elm = document.querySelector('a.js-move-card');
+
+    elm.click();
+  }
+
+  function copyCard() {
+    if(card.length !== 1) return;
+
+    card.find('span.list-card-operation').trigger('click');
+    elm = document.querySelector('a.js-copy-card');
 
     elm.click();
   }

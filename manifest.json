@@ -1,6 +1,6 @@
 {
   "name": "Shortcuts for Trello",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "manifest_version": 2,
   "description": "Adds more extensions to Trello",
   "homepage_url": "https://github.com/bulkan/shortcuts-for-trello",
@@ -32,6 +32,9 @@
   "commands": {
     "movecard": {
       "description": "Show the Move dialog menu"
+    },
+    "copycard": {
+      "description": "Show the Copy dialog menu"
     },
     "yank": {
       "description": "Copy short URL"
