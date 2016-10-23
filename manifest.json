@@ -37,7 +37,7 @@
       "description": "Move card up one position"
     },
     "movecarddown": {
-      "description": "Show card down one position"
+      "description": "Move card down one position"
     },
     "copycard": {
       "description": "Show the Copy dialog menu"
