@@ -17,14 +17,20 @@ chrome.extension.sendMessage({}, function() {
         case 'movecard':
           moveCard();
         break;
+        case 'movecardup':
+          moveCardUp();
+        break;
+        case 'movecarddown':
+          moveCardDown();
+        break;
         case 'copycard':
           copyCard();
         break;
         case 'yank':
           yank();
         break;
-        case 'movecardup':
-          moveCardUp();
+        case 'movecardtop':
+          moveCardTop();
         break;
         case 'notifications':
           notifications();
@@ -63,6 +69,26 @@ chrome.extension.sendMessage({}, function() {
     elm.click();
   }
 
+  function moveCardUp() {
+    if(card.length !== 1) return;
+
+    var prevCard = card.prev('.list-card');
+
+    if(prevCard) {
+      $(card).insertBefore(prevCard);
+    }
+  }
+
+  function moveCardDown() {
+    if(card.length !== 1) return;
+
+    var nextCard = card.next('.list-card');
+
+    if(nextCard) {
+      $(card).insertAfter(nextCard);
+    }
+  }
+
   function copyCard() {
     if(card.length !== 1) return;
 
@@ -83,7 +109,7 @@ chrome.extension.sendMessage({}, function() {
     chrome.extension.sendMessage({ text: url });
   }
 
-  function moveCardUp() {
+  function moveCardTop() {
     if(card.length !== 1) return;
 
     card.find('span.list-card-operation').trigger('click');

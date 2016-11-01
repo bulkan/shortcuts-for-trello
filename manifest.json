@@ -1,6 +1,6 @@
 {
   "name": "Shortcuts for Trello",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "manifest_version": 2,
   "description": "Adds more extensions to Trello",
   "homepage_url": "https://github.com/bulkan/shortcuts-for-trello",
@@ -33,13 +33,19 @@
     "movecard": {
       "description": "Show the Move dialog menu"
     },
+    "movecardup": {
+      "description": "Move card up one position"
+    },
+    "movecarddown": {
+      "description": "Move card down one position"
+    },
     "copycard": {
       "description": "Show the Copy dialog menu"
     },
     "yank": {
       "description": "Copy short URL"
     },
-    "movecardup": {
+    "movecardtop": {
       "description": "Move card to top"
     },
     "notifications": {
@@ -57,6 +63,6 @@
     "newboard": {
       "description": "Create a new board"
     }
-    
+
   }
 }
