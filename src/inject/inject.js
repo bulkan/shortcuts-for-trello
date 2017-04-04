@@ -9,10 +9,10 @@ chrome.extension.sendMessage({}, function() {
       clearInterval(readyStateCheckInterval);
       chrome.runtime.onMessage.addListener(routeCommand);
     }
-  }, 10);
+  }, 3);
 
   function routeCommand(request) {
-    card = $('.active-card');
+    card = $('.card-detail-window');
     switch(request.command) {
         case 'movecard':
           moveCard();
