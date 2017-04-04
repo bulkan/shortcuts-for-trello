@@ -62,6 +62,9 @@
     },
     "newboard": {
       "description": "Create a new board"
+    },
+    "newchecklist": {
+      "description": "Create a new checklist"
     }
 
   }
