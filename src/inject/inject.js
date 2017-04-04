@@ -47,6 +47,8 @@ chrome.extension.sendMessage({}, function() {
         break;
         case 'newboard':
           newBoard();
+        case 'newchecklist':
+          newChecklist();
         break;
     }
   }
@@ -210,5 +212,35 @@ chrome.extension.sendMessage({}, function() {
 
     var path_to_card = pathname.join("/");
     return a.origin + "/" + path_to_card;
+  }
+
+  function newChecklist(){
+    if (card.length !== 1) return;
+
+    // @TODO: have a dictionary of elements instead of hardcoding strings
+    var element = findByClass("js-add-checklist-menu");
+    clickOn(element);
+  }
+
+  // @TODO: these are helper functions. Move them (and any other helpers) away from here.
+  function clickOn(element) {
+    var event = new MouseEvent("click", {
+      'view': window,
+      'bubbles': true,
+      'cancelable': true
+    });
+
+    var cancelled = !element.dispatchEvent(event);
+
+    if (cancelled) {
+      // A handler called preventDefault.
+    } else {
+      // None of the handlers called preventDefault.
+    }
+  }
+
+  function findByClass(className) {
+    var element = document.getElementsByClassName(className);
+    return element[0];
   }
 });
