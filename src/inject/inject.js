@@ -101,12 +101,18 @@ chrome.extension.sendMessage({}, function() {
   function yank() {
     if(card.length !== 1) return;
 
-    var url = $('.list-card-details > a', card)[0].href;
-    url = url.substr(0, url.lastIndexOf('/'));
-    console.log('Card:', url);
-    flashMessage(card, 'Copied: ');
+    var a = document.createElement("a");
+    a.href = $(location).attr("href");
+    pathname = a.pathname.split("/");
+    pathname.pop();
 
-    chrome.extension.sendMessage({ text: url });
+    var path_to_card = pathname.join("/");
+    var short_url = a.origin + "/" + path_to_card;
+
+    console.log('Card:', short_url);
+    flashMessage(card, 'Copied: ' + short_url);
+
+    chrome.extension.sendMessage({ text: short_url });
   }
 
   function moveCardTop() {
