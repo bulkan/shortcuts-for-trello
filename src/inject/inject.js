@@ -153,12 +153,12 @@ chrome.extension.sendMessage({}, function() {
       "left": position.left + (card.width() / 3),
       "color": "white",
       "background-color": "rgba(40, 50, 75, 0.65)",
-      "padding": "5px",
+      "padding": "15px",
       "display": "block",
       "z-index": 9999
     })
-    .fadeIn(function(){
-      $("#floatingDiv").fadeOut(function(){
+    .fadeIn(1000, function(){
+      $("#floatingDiv").fadeOut(1500, function(){
         $("#floatingDiv").remove();
       })
     });
