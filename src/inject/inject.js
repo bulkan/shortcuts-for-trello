@@ -12,7 +12,8 @@ chrome.extension.sendMessage({}, function() {
   }, 3);
 
   function routeCommand(request) {
-    card = $('.card-detail-window');
+    card = getCurrentCard();
+
     switch(request.command) {
         case 'movecard':
           moveCard();
@@ -101,13 +102,14 @@ chrome.extension.sendMessage({}, function() {
   function yank() {
     if(card.length !== 1) return;
 
-    var a = document.createElement("a");
-    a.href = $(location).attr("href");
-    pathname = a.pathname.split("/");
-    pathname.pop();
-
-    var path_to_card = pathname.join("/");
-    var short_url = a.origin + "/" + path_to_card;
+    if (card.selector == ".card-detail-window") {
+      short_url = getURLFromDetailedCardWindow();
+    } else if (card.selector == ".active-card") {
+      short_url = getURLFromActiveCard(card);
+    } else {
+      console.log("No card to copy Short URL from");
+      return;
+    }
 
     console.log('Card:', short_url);
     flashMessage(card, 'Copied: ' + short_url);
@@ -182,4 +184,31 @@ chrome.extension.sendMessage({}, function() {
     }
   }
 
+  function getCurrentCard(){
+    active_card = $('.active-card')
+    detailed_card_window = $('.card-detail-window');
+
+    if (detailed_card_window.size() == 1) {
+      return detailed_card_window;
+    } else if (active_card.size() == 1) {
+      return active_card;
+    } else {
+      return {lenght: 0};
+    }
+  }
+
+  function getURLFromActiveCard(card) {
+    var a = $('.list-card-details > a', card)[0].href;
+    return a.substr(0, a.lastIndexOf('/'));
+  }
+
+  function getURLFromDetailedCardWindow() {
+    var a = document.createElement("a");
+    a.href = $(location).attr("href");
+    pathname = a.pathname.split("/");
+    pathname.pop();
+
+    var path_to_card = pathname.join("/");
+    return a.origin + "/" + path_to_card;
+  }
 });
