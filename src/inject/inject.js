@@ -63,7 +63,7 @@ chrome.extension.sendMessage({}, function() {
   function moveCard() {
     if(card.length !== 1) return;
 
-    card.find('span.list-card-operation').trigger('click');
+    card.find('span.list-card-title').trigger('click');
     elm = document.querySelector('a.js-move-card');
 
     elm.click();
