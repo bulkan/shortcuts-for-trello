@@ -101,7 +101,7 @@ chrome.extension.sendMessage({}, function() {
   function yank() {
     if(card.length !== 1) return;
 
-    var url = $('.list-card-details > a', card)[0].href;
+    var url = card[0].href.match('https://trello.com/c/.+(?=/)')[0];
     url = url.substr(0, url.lastIndexOf('/'));
     console.log('Card:', url);
     flashMessage(card, 'Copied: ');
