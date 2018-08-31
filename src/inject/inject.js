@@ -32,6 +32,9 @@ chrome.extension.sendMessage({}, function() {
         case 'movecardtop':
           moveCardTop();
         break;
+		case 'movecardbottom':
+          moveCardBottom();
+        break;
         case 'notifications':
           notifications();
         break;
@@ -101,7 +104,8 @@ chrome.extension.sendMessage({}, function() {
   function yank() {
     if(card.length !== 1) return;
 
-    var url = card[0].href.match('https://trello.com/c/.+(?=/)')[0];
+    var url = $('.list-card-details > a', card)[0].href;
+    url = url.substr(0, url.lastIndexOf('/'));
     console.log('Card:', url);
     flashMessage(card, 'Copied: ');
 
@@ -116,6 +120,17 @@ chrome.extension.sendMessage({}, function() {
 
     elm.click();
     $('.js-select-position').children().first().attr('selected', 'selected');
+    $('input[value="Move"]').click();
+  }
+  
+  function moveCardBottom() {
+    if(card.length !== 1) return;
+
+    card.find('span.list-card-operation').trigger('click');
+    elm = document.querySelector('a.js-move-card');
+
+    elm.click();
+    $('.js-select-position').children().last().attr('selected', 'selected');
     $('input[value="Move"]').click();
   }
 
